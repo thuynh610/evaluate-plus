@@ -1,0 +1,123 @@
+body {
+    background-color: #E4F9F5;
+}
+
+.mdl-layout {
+    text-align: center;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.title {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.subheading {
+    font-weight: bold; 
+}
+
+.unit {
+    margin: 40px;
+    color: black;
+}
+
+.data {
+    margin: auto;
+    padding: 0 20%;
+}
+
+.card {
+    margin: 20px;
+    display: inline-table;
+    border-radius: 20px;
+    color: floralwhite;
+    height: 120px;
+    width: 120px;
+    background-color: rgb(0,150,136);
+    padding: 20px;
+}
+
+.digit {
+    height: 60%;
+}
+
+.digit-text {
+    text-align: center;
+    margin: 0, auto;
+}
+
+.mdl-card__actions {
+    font-weight: bold;
+}
+
+.mdl-button {
+    border-radius: 20px;
+    background-color: rgb(0,150,136) !important;
+    color: white !important;
+}
+
+.reviews {
+    width: 800px;
+    height: 100%;
+    color: black;
+    margin: 0 auto;
+}
+
+.mdl-list__item-text-body {
+    color: white !important;
+}
+
+.mdl-list__item.review {
+    margin: 10px;
+    background-color: rgb(0,150,136);
+    border-radius: 8px;
+    color: white;
+}
+
+.right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+
+.left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    width: 15%;
+    height: 33%;
+
+    margin: 10px;
+    border: 2px solid rgb(0,150,136);
+    border-radius: 8px;
+    background-color: white;
+    overflow-y: hidden;
+}
+
+.subheading {
+    display: block;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.list-icon {
+    width: 100%;
+    border-radius: 0;
+}
+
+.mdl-list__item.suggested-unit {
+    padding-left: 40px;
+    text-align: center;
+    color: black;
+}
+
+.mdl-list__item.suggested-unit:hover {
+    cursor: pointer;
+    transition: 0.1s;
+    background-color: rgba(0, 0, 0, 0.05);
+}

@@ -1,0 +1,211 @@
+// define package
+const mongoose = require('mongoose');
+const Course = require('./models/Course');
+
+// connection to database
+const dbURI = 'mongodb+srv://FIT2101:FIT2101@mongodb.rbol2.mongodb.net/Evaluate+?retryWrites=true&w=majority';
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true })
+
+// define list variables format
+const biomedical_core = [
+    ["ECE2111", "Signals and systems"],
+    ["CHE2161", "Mechanics of fluids"],
+    ["MEC3602", "Biomedical microsystems"],
+    ["ENG2005", "Advanced engineering mathematics"],
+    ["MCB2011", "Molecular biology and the cell"],
+    ["ECE2071", "Computer organisation and programming"],
+    ["PHY2011", "Neuroscience of communication, sensory and control systems"],
+    ["DEV2011", "Early human development from cells to tissues"],
+    ["MCB2022", "The dynamic cell"],
+    ["ECE4087", "Medical technology innovation"],
+    ["PHY2042", "Body systems physiology "],
+    ["DEV2022", "Human anatomy and development: Tissues and body systems"],
+    ["ECE2131", "Electrical circuits"],
+    ["MEC3601", "Mechanics for biomedical engineering"],
+    ["MTE3601", "Biomedical materials"],
+    ["PHY3111", "Sensory and cognitive neuroscience"],
+    ["ENG4701", "Final year project A"],
+    ["ECE4081", "Medical instrumentation"],
+    ["ECE4179", "Neural networks and deep learning"],
+    ["MEC4407", "Design project"],
+    ["ENG4702", "Final year project B"],
+    ["MEC4404", "Professional practice"],
+    ["TRC3500", "Sensors and artificial perception"],
+    ["MEC4601", "Implantable devices"]
+];
+const biomedical_electives = [
+
+];
+
+const chemical_core = [
+    ["ENG2005", "Advanced engineering mathematics"],
+    ["CHM1011", "Chemistry 1"],
+    ["CHM1051", "Chemistry 1 advanced"],
+    ["CHE2164", "Thermodynamics 1"],
+    ["CHE2162", "Materials and energy balances"],
+    ["CHE2161", "Mechanics of fluids"],
+    ["CHE2163", "Heat and mass transfer"],
+    ["CHE3161", "Chemistry and chemical thermodynamics"],
+    ["CHE3165", "Separation processes"],
+    ["CHE3167", "Transport phenomena and numerical methods"],
+    ["CHE3162", "Process control"],
+    ["CHE3164", "Reaction engineering"],
+    ["CHE3166", "Process design"],
+    ["CHE4164", "Integrated industrial project"],
+    ["CHE4701", "Final year project"],
+    ["CHE4162", "Particle technology"],
+    ["CHE4161", "Engineer in society"],
+    ["CHE4702", "Final year project"],
+    ["CHE4170", "Design project"]
+];
+const chemical_elective = [   
+    ["CHE2166", "Introduction to process simulation"],
+    ["CHE2167", "Process material selection"],
+    ["CHE2871", "Biochemistry for engineers"],
+    ["CHE2873", "Introduction to chemical processes"],
+    ["CHE2951", "Environmental chemistry – Water"],
+    ["ECE2071", "Computer organisation and programming"],
+    ["ECE2131", "Electrical circuits"],
+    ["MTH2232", "Mathematical statistics"],
+    ["CHE3133", "Food engineering"],
+    ["CHE3163", "Sustainable processing 1"],
+    ["CHE3171", "Bioprocess technology"],
+    ["CHE3172", "Nanotechnology and materials 1"],
+    ["CHE3873", "Pilot plant project"],
+    ["CHE3960", "Environmental chemistry"],
+    ["ENG3101", "Engineering education placement"],
+    ["TRC3500", "Sensors and artificial perception"],
+    ["ENE4042", "Environmental impact and risk assessment"],
+    ["CHE4171", "Biochemical engineering"],
+    ["CHE4172", "Nanotechnology and materials 2"],
+    ["CHE4173", "Sustainable processing 2"],
+    ["ENG5002", "Engineering entrepreneurship"],
+    ["CHE5321", "Advanced bioprocess technology"],
+    ["CHE5322", "Advanced biochemical engineering"],
+    ["CHE5881", "Advanced reaction engineering"],
+    ["CHE5882", "Biomass and bio-refineries"],
+    ["CHE5883", "Nanostructured membranes for separation and energy production"],
+    ["CHE5884", "Process modelling and optimisation"],
+    ["CHE5885", "Principles and practices for sustainable development"],
+    ["CHE5889", "Food engineering and processing"]    
+];
+
+const civil_core = [
+    ["CIV2206", "Structural mechanics"],
+    ["CIV2282", "Transport and traffic engineering"],
+    ["CIV2263", "Water systems"],
+    ["ENG2005", "Advanced engineering mathematics"],
+    ["CIV2242", "Geomechanics 1"],
+    ["CIV2235", "Structural materials"],
+    ["CIV3248", "Groundwater and environmental geomechanics"],
+    ["CIV3294", "Structural design"],
+    ["CIV3285", "Engineering hydrology"],
+    ["CIV3204", "Engineering investigation"],
+    ["CIV3221", "Building structures and technology"],
+    ["CIV3247", "Geomechanics 2"],
+    ["ENG4701", "Final year project"],
+    ["CIV4286", "Project management for civil engineers"],
+    ["CIV4280", "Bridge design and assessment"],
+    ["CIV4212", "Civil and environmental engineering practice"],
+    ["CIV4287", "Road engineering"],
+    ["CIV4288", "Water treatment"]
+];
+const civil_elective = [
+    ["ENG1021", "Spatial communication in engineering"],
+    ["CIV2283", "Civil engineering construction"],
+    ["ENE2503", "Material properties and recycling"],
+    ["RSE2010", "Fixed plant engineering and project management"],
+    ["ENG3101", "Engineering education placement"],
+    ["RSE3010", "Mine geotechnical engineering"],
+    ["RSE3020", "Resource estimation"],
+    ["RSE3030", "Ventilation for surface and underground spaces"],
+    ["RSE3040", "Mining systems"],
+    ["RSE3060", "Rock breakage"],
+    ["RSE3141", "Solar energy"],
+    ["RSE3241", "Hydropower"],
+    ["RSE3242", "Geothermal energy"],
+    ["RSE3243", "Bioenergy"],
+    ["CIV4100", "Autonomous vehicle systems"],
+    ["CIV4211", "Project B"],
+    ["CIV4234", "Advanced structural analysis"],
+    ["CIV4235", "Advanced structural design"],
+    ["CIV4248", "Ground hazards engineering"],
+    ["CIV4249", "Foundation engineering"],
+    ["CIV4261", "Integrated urban water management"],
+    ["CIV4268", "Water resources management"],
+    ["CIV4283", "Transport planning"],
+    ["CIV4284", "Traffic systems"],
+    ["CIV4293", "Transport planning for Asian cities"],
+    ["CIV5301", "Advanced traffic engineering"],
+    ["CIV5302", "Traffic engineering and management"],
+    ["CIV5304", "Intelligent transport systems"],
+    ["CIV5314", "Planning urban mobility futures"],
+    ["CIV5881", "Ground water hydraulics"],
+    ["CIV5882", "Flood hydraulics and hydrology"],
+    ["CIV5883", "Surface water hydrology"],
+    ["CIV5884", "Water sensitive storm water design"],
+    ["CIV5885", "Infrastructure dynamics"],
+    ["CIV5886", "Infrastructure geomechanics"],
+    ["CIV5887", "Infrastructure rehabilitation and monitoring"],
+    ["CIV5888", "Advanced computational methods"],
+    ["CIV5899", "Infrastructure information management"]
+];
+
+const environmental_core = [
+    ["ENE2021", "Energy and the environment"],
+    ["CHE2164", "Thermodynamics 1"],
+        ["CIV2263", "Water systems"],
+        ["CHE2162", "Material and energy balances "],
+        ["ENG2005", "Advanced engineering mathematics"],
+        ["ENE2503", "Material properties and recycling "],
+        ["CIV3248", "Groundwater and environmental geomechanics"],
+        ["CIV3285", "Engineering hydrology"],
+    ["ENE3031", "Building sustainability"],   
+    ["ENE3606", "The air environment"],
+    ["ENE3032", "Fate and transport of contaminants"],
+    ["BTX3100", "Sustainability regulation for business"],
+        ["CIV4286", "Project management for civil engineers"],
+        ["ENE4042", "Environment impact and risk assessment"],
+    ["ENE4041", "Soil remediation and solid waste management"],
+        ["CIV4212", "Civil and environmental engineering practice"],
+    ["CIV4210", "Project A"]
+];
+const environmental_elective = [
+    ["ATS2548", "Environmental policy and management"], 
+    ["BIO2011", "Ecology and biodiversity"],   
+    ["BIO2040", "Conservation biology" ], 
+        ["CIV2242", "Geomechanics 1"], 
+        ["CIV2282", "Transport and traffic engineering"], 
+    ["ECC2800", "Prosperity, poverty and sustainability in a globalised world"], 
+        ["CHE3161", "Chemistry and chemical thermodynamics "], 
+        ["CHE3163", "Sustainable processing 1 "], 
+        ["CHE3165", "Separation processes "], 
+        ["CHE3166", "Process design"],
+        ["CIV3204", "Engineering investigation"], 
+        ["CIV4210", "ProjectA"],
+        ["CIV3247", "Geomechanics 2"],
+        ["ENG3101", "Engineering education placement"],
+        ["RSE3020", "Resource estimation"],
+        ["RSE3030", "Ventilation for surface and underground spaces"],
+        ["RSE3040", "Mining systems"],
+        ["RSE3060", "Rock breakage"],
+        ["RSE3141", "Solar energy"],
+        ["RSE3241", "Hydropower"],
+        ["RSE3243", "Bioenergy "],
+        ["CIV4211", "Project B"],
+        ["CIV4248", "Ground hazards engineering"],
+        ["CIV4249", "Foundation engineering"],
+        ["CIV4261", "Integrated urban water management"],
+        ["CIV4268", "Water resources management"],
+        ["CIV4283", "Transport planning"],
+        ["CIV4284", "Traffic systems"],
+    ["MTE4593", "Materials and sustainability"]
+];
+// add above array into database
+
+const newUnit = new Course({
+course_title: "Civil",
+core_units: civil_core,
+elective_units: civil_elective,
+})
+newUnit.save();

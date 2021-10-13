@@ -1,0 +1,129 @@
+body {
+    background-color: #E4F9F5;
+}
+
+.mdl-layout {
+    text-align: center;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.aspect {
+    background-color: #F8F9F9;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    padding: 50px 50px;
+}
+
+.heading {
+    font-weight: 600;
+}
+
+
+.mdl-button {
+    background-color: coral;
+    color: rgba(255, 255, 255, 0.95) !important; 
+    font-family: inherit;
+    border-radius: 8px;
+}
+
+
+.mdl-button:hover {
+    background-color: salmon
+
+}
+
+.subscript {
+    padding: 50px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.subject {
+    margin: 2px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    background-color: rgba(112, 128, 144, 0.5);
+    user-select: none;
+}
+
+.subject:hover {
+    background-color: rgba(112, 128, 144, 0.4);
+    cursor: pointer;
+    text-decoration: line-through;
+}
+
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.textfield {
+    margin-top: 5px;
+    padding: 10px;
+    width: 70%;
+}
+
+.mainheading {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#completedSubjects {
+    line-height: 30px;
+    overflow-wrap: break-word;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: inherit;
+}
+
+.year {
+    background: none;
+    border: solid 2px black;
+    border-radius: 4px;
+    margin-left: 10px;
+    width: 52px;
+    height: 20px;
+}
+
+.getmdl-select__fix-height {
+    width: 100%;
+}
+
+.mdl-textfield__label {
+    font-size: 13px;
+}
+
+.mdl-data-table {
+    align-content: center;
+    width: 60%;
+}
+
+.mdl-textfield--floating-label {
+    font-size: 13px;
+}
+
+.center {
+    margin: auto;
+    width: 95%;
+    padding: 10px;
+  }
+
+.center2 {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+}
+
+.mdl-card__title-text {
+    font-weight: bold !important;
+    color: rgb(0,150,136);
+}
