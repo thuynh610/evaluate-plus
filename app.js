@@ -7,7 +7,6 @@ const Course = require('./models/Course');
 const { response } = require('express');
 const { result, update } = require('lodash');
 const { info } = require('console');
-
 const port = process.env.PORT || "9000";
 
 const dbURI = 'mongodb+srv://FIT2101:FIT2101@mongodb.rbol2.mongodb.net/Evaluate+?retryWrites=true&w=majority&ssl=true';
