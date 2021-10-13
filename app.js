@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require("path");
-const Review = require('./models/Review');
+const Review = require('./models/review');
 const Unit = require('./models/Unit');
 const Course = require('./models/Course');
 const { response } = require('express');
